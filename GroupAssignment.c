@@ -242,7 +242,7 @@ void TIM2_Init(void) {
 
     // Set TIM2 for 1 Hz (1-second period)
     TIM2->PSC = 16 - 1;        // Prescaler: 16 MHz / 16 = 1 MHz
-    TIM2->ARR = 34285 - 1;   // Auto-reload: 1 MHz / 34285 = 29.167 Hz (34.285 ms period)
+    TIM2->ARR = 50000 - 1;   // Auto-reload: 1 MHz / 50000 = 20 Hz (50 ms period)
 
     // Enable Update Interrupt
     TIM2->DIER |= TIM_DIER_UIE; // Enable update interrupt
