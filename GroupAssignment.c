@@ -241,8 +241,8 @@ void TIM2_Init(void) {
     RCC->APB1ENR |= (1 << 0); // TIM2 clock enable
 
     // Set TIM2 for 1 Hz (1-second period)
-    TIM2->PSC = 27 - 1;        // Prescaler: 84 MHz / 84 = 1 MHz
-    TIM2->ARR = 20000 - 1;   // Auto-reload: 1 MHz / 1,000,000 = 1 Hz (1-second period)
+    TIM2->PSC = 16 - 1;        // Prescaler: 16 MHz / 16 = 1 MHz
+    TIM2->ARR = 34285 - 1;   // Auto-reload: 1 MHz / 34285 = 29.167 Hz (34.285 ms period)
 
     // Enable Update Interrupt
     TIM2->DIER |= TIM_DIER_UIE; // Enable update interrupt
@@ -267,7 +267,7 @@ void TIM9_Init(void) {
     TIM9->CCER |= (1 << 3);       // Configure both edges (rising and falling)
     TIM9->CCER |= (1 << 0);       // Enable capture for channel 1
 
-    TIM9->PSC = 84 - 1;           // Prescaler: 1 µs resolution (assuming 84 MHz clock)
+    TIM9->PSC = 16 - 1;           // Prescaler: 1 µs resolution 
     TIM9->ARR = 0xFFFF;           // Maximum auto-reload value
 
     TIM9->DIER |= (1 << 1);       // Enable CC1 interrupt
